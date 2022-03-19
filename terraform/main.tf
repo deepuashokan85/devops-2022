@@ -1,7 +1,8 @@
- ami           = "ami-0c293f3f676ec4f90"
-  instance_type = "t2.micro"
-  subnet_id   = "subnet-0011853534e832e2c"
-  count = 5
+resource "aws_instance" "devops-2022" {
+  ami           = var.ami_id
+  instance_type = var.inst_type
+  subnet_id   = var.sub_id
+  count = var.count_value
 
   tags = {
     Name = "pradeep-terraform"
