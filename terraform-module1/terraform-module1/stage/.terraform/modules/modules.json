@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"aws_app","Source":"../modules/ec2","Dir":"../modules/ec2"},{"Key":"aws_db","Source":"../modules/ec2","Dir":"../modules/ec2"},{"Key":"aws_web","Source":"../modules/ec2","Dir":"../modules/ec2"},{"Key":"","Source":"","Dir":"."}]}
