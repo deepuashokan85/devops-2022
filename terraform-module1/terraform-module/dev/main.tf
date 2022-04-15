@@ -1,5 +1,4 @@
 module "aws_network" {
-{
   resource "aws_vpc" "my_vpc" {
   cidr = "192.64.0.0/16"
   azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
@@ -9,33 +8,25 @@ module "aws_network" {
   enable_vpn_gateway = true
   tags = "dev-balaaji-vpc"
  }
-}
 
-{
   resource "aws_subnet" "my_subnet" {
   vpc_id     = aws_vpc.my_vpc.id
   cidr_block = "192.64.10.0/24"
   availability_zone = "us-east-2a"
   tags = "dev-balaaji-subnet"
  }
-}
 
-{
   resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.my_vpc.id
   tags = "dev-balaaji-igw"
  }
-}
 
-{
   resource "aws_nat_gateway" "my_nat_gateway" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.my_subnet.id
   tags = "dev-balaaji-ngw"
  }
-}
 
-{
   resource "aws_route_table" "my_route_table" {
   vpc_id = aws_vpc.my_vpc.id
   route {
@@ -48,7 +39,6 @@ module "aws_network" {
   }
   tags = "dev-balaaji-rt"
   }
-}
 
 module "aws_loadbalancer" {
   resource "aws_lb" "my_lb" {
@@ -76,7 +66,7 @@ module "aws_ec2" {
   tag              = "dev-balaji-ec2"
 }
 
-module "aws_securitygroup" {
+module "aws_sg" {
   resource "aws_sg" "my_sg" {
   description = "Allow TLS inbound traffic"
   vpc_id      = "vpc-06619b9a4856571a7"
