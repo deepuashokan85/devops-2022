@@ -39,6 +39,7 @@ module "aws_network" {
   }
   tags = "dev-balaaji-rt"
   }
+}
 
 module "aws_loadbalancer" {
   resource "aws_lb" "my_lb" {
@@ -55,7 +56,7 @@ module "aws_loadbalancer" {
   tags = "dev-balaaji-lb"
   }
 }
-}
+
 
 module "aws_ec2" {
   source           = "../modules/ec2"
@@ -67,8 +68,7 @@ module "aws_ec2" {
 }
 
 module "aws_sg" {
-  resource "aws_sg" "my_sg" {
-  description = "Allow TLS inbound traffic"
+  idescription = "Allow TLS inbound traffic"
   vpc_id      = "vpc-06619b9a4856571a7"
   ingress {
     description      = "TLS from VPC"
@@ -85,4 +85,4 @@ module "aws_sg" {
   }
   tags = "dev-balaji-sg"
   }
-}
+
