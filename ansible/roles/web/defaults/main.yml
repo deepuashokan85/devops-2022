@@ -1,0 +1,4 @@
+---
+# defaults file for web
+web_pkg : "httpd"
+pradeep_devops : "Hello Germany"
