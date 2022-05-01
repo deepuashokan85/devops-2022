@@ -2,8 +2,9 @@ resource "aws_instance" "devops-2022" {
   ami           = var.ami_id
   instance_type = var.inst_type
   subnet_id   = var.sub_id
-  count = 1
-
+  count = 4
+  key_name = "Pradeep-keypair"
+  associate_public_ip_address = true
   tags = {
     Name = "pradeep-terraform"
   }

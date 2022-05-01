@@ -6,18 +6,18 @@ resource "aws_instance" "test" {
 
  tags = {
   Name = "kavitha-terraform"
- } 
+ }
 }
 
-resource "security-group" "kavitha-sg" {
+resource "aws_security_group" "kavitha-sg" {
  name = "kavitha-sg"
  description = "Allow TLS inbound traffic"
  vpc_id = "vpc-06619b9a4856571a7"
- 
+
  ingress {
   description = "TLS from vpc"
   from_port = 443
-  to_port = 443 
+  to_port = 443
   protocol = "tcp"
   cidr_block = ["10.10.0.0/32"]
  }
@@ -33,4 +33,3 @@ resource "security-group" "kavitha-sg" {
   Name = "allow http"
  }
 }
-
