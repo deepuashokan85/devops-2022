@@ -1,0 +1,2 @@
+db_endpoint : "dev.db.com"
+db_password : "abc"
