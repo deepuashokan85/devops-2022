@@ -1,0 +1,3 @@
+---
+#default file for web
+web_pkg : "httpd"

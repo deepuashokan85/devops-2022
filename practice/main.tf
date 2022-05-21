@@ -9,7 +9,7 @@ resource "aws_instance" "test" {
  } 
 }
 
-resource "security-group" "kavitha-sg" {
+resource "aws_security_group" "kavitha-sg" {
  name = "kavitha-sg"
  description = "Allow TLS inbound traffic"
  vpc_id = "vpc-06619b9a4856571a7"
