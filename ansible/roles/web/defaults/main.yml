@@ -1,3 +1,5 @@
 ---
-#default file for web
-web_pkg : "httpd"
+# defaults file for web
+
+value_state : "present"
+web_package : "httpd"
