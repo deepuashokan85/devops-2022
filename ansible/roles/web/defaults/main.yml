@@ -1,5 +1,6 @@
 ---
 # defaults file for web
 
-value_state : "present"
-web_package : "httpd"
+#value_state : "present"
+#web_package : "httpd"
+demo_name: "host"
