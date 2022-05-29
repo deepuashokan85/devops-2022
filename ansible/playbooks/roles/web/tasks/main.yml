@@ -1,0 +1,39 @@
+---
+# tasks file for web
+
+#  - name: Ensure {{ demo_env }} kernel parameters "{{ value_state }}"
+#    ansible.posix.sysctl:
+#      name: "{{item.name}}"
+#      value: "{{item.value}}"
+#      state: "{{ value_state }}"
+#    with_items:
+#      - {name: fs.file-max, value: 65535}
+#      - {name: kernel.pid_max, value: 65535}
+#      - {name: net.ipv4.ip_forward, value: 1 }
+#    when: ansible_os_family == "RedHat"
+
+  - name: Ensure {{ demo_env }} pre-req & httpd "{{ value_state }}"
+    yum:
+      state: "{{ value_state }}"
+      name:
+        - telnet
+        - "{{ web_package }}"
+    when: ansible_os_family == "RedHat"
+
+  - name: copy static file to {{ demo_env }}
+    ansible.builtin.copy:
+      src: static.html
+      dest: /var/www/html/static.html
+    when: ansible_os_family == "RedHat"
+
+  - name: render index.html {{ demo_env }}
+    ansible.builtin.template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
+    when: ansible_os_family == "RedHat"
+
+  - name: Make sure {{ demo_env }} httpd service unit is running
+    ansible.builtin.systemd:
+      state: started
+      name: "{{ web_package }}"
+    when: ansible_os_family == "RedHat"
