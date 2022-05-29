@@ -1,16 +1,16 @@
 ---
 # tasks file for web
 
-  - name: Ensure {{ demo_env }} kernel parameters "{{ value_state }}"
-    ansible.posix.sysctl:
-      name: "{{item.name}}"
-      value: "{{item.value}}"
-      state: "{{ value_state }}"
-    with_items:
-      - {name: fs.file-max, value: 65535}
-      - {name: kernel.pid_max, value: 65535}
-      - {name: net.ipv4.ip_forward, value: 1 }
-    when: ansible_os_family == "RedHat"
+#  - name: Ensure {{ demo_env }} kernel parameters "{{ value_state }}"
+#    ansible.posix.sysctl:
+#      name: "{{item.name}}"
+#      value: "{{item.value}}"
+#      state: "{{ value_state }}"
+#    with_items:
+#      - {name: fs.file-max, value: 65535}
+#      - {name: kernel.pid_max, value: 65535}
+#      - {name: net.ipv4.ip_forward, value: 1 }
+#    when: ansible_os_family == "RedHat"
 
   - name: Ensure {{ demo_env }} pre-req & httpd "{{ value_state }}"
     yum:
