@@ -1,5 +1,0 @@
----
-
-demo_env    : "prod"
-value_state : "present"
-web_package : "httpd"
