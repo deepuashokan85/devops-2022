@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'shell_exe' }
+    agent { label 'python_exe' }
 
     stages {
         stage('mvn build') {
