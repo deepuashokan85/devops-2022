@@ -9,7 +9,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                ech 'ansible-playbook'
+                echo 'ansible-playbook'
             }
         }
         stage('testing') {
