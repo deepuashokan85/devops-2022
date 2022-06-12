@@ -5,6 +5,7 @@ pipeline {
         stage('mvn build') {
             steps {
                 echo 'mvn build'
+                sleep 150
             }
         }
         stage('deploy') {
