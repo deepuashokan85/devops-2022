@@ -7,3 +7,11 @@
 
     roles:
       - web
+
+  - name: Web Server
+    hosts: script
+    remote_user: ec2-user
+    become: yes
+
+    roles:
+      - script
