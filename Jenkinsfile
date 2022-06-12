@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent shell_exe
 
     stages {
         stage('mvn build') {
