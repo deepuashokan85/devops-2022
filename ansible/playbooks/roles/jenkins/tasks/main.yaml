@@ -5,6 +5,7 @@
       name:
         - java-1.8.0-openjdk
         - wget
+        - git
       state: present
 
   - name: Download Jenkins repo
