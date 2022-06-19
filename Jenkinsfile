@@ -27,7 +27,7 @@ pipeline {
 		sh '''
                 cd terraform
  		pwd
-                terraform apply --auto-approve
+                terraform destroy --auto-approve
 		'''
             }
         }
