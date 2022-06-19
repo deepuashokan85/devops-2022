@@ -7,7 +7,7 @@ pipeline {
         string(name: 'count', defaultValue: '', description: 'Instance Count')
         booleanParam(name: 'Destroy', defaultValue: true, description: 'Terraform Destroy')
     }
-/* Pradeep */
+/* Pradeep DevOps*/
     stages {
         stage('Terraform Init') {
             steps {
