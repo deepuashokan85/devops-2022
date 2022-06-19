@@ -33,7 +33,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                 if (params.Destroy== True)
+                 if (params.Destroy == true)
 		{
 		sh '''
                 cd terraform
