@@ -45,8 +45,11 @@ pipeline {
 
         stage('Terraform Destroy') {
                  when {
-                 option name: 'Destroy', value: 'true'
+                 allOf{
+ 			expression{Destroy == true}
             	 }
+		}
+
 		steps {
 		sh '''
                 cd terraform
