@@ -24,6 +24,8 @@ pipeline {
 		sh '''
 		cd terraform
  		pwd
+                export TF_VAR_ami_id=$ami_id
+                export TF_VAR_count_num=$count
                 terraform plan
 		'''
             }
@@ -34,7 +36,9 @@ pipeline {
 		sh '''
                 cd terraform
  		pwd
-                terraform destroy --auto-approve
+                export TF_VAR_ami_id=$ami_id
+                export TF_VAR_count_num=$count
+                terraform apply --auto-approve
 		'''
             }
         }
