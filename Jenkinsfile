@@ -5,7 +5,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['AWS', 'AZ', 'GCP'], description: 'Pick Cloud Provider')
         string(name: 'ami_id', defaultValue: '', description: 'pass AMI ID')
         string(name: 'count', defaultValue: '', description: 'Instance Count')
-        booleanParam(name: 'Destroy', defaultValue: false, description: 'Terraform Destroy')
+        booleanParam(name: 'Destroy', defaultValue: true, description: 'Terraform Destroy')
     }
 /* Pradeep DevOps*/
     stages {
