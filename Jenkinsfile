@@ -5,6 +5,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['AWS', 'AZ', 'GCP'], description: 'Pick Cloud Provider')
         string(name: 'ami_id', defaultValue: '', description: 'pass AMI ID')
         string(name: 'count', defaultValue: '', description: 'Instance Count')
+        booleanParam(name: 'Destroy', defaultValue: true, description: 'Terraform Destroy')
 
     }
 
@@ -33,13 +34,26 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
+                 if (params.BuildType == 'Destroy')
+		{
 		sh '''
                 cd terraform
  		pwd
                 export TF_VAR_ami_id=$ami_id
                 export TF_VAR_count_num=$count
-                terraform apply --auto-approve
+                terraform destroy --auto-approve
 		'''
+		}
+		else
+		{
+                sh '''
+                cd terraform
+                pwd
+                export TF_VAR_ami_id=$ami_id
+                export TF_VAR_count_num=$count
+                terraform apply --auto-approve
+                '''
+		}
             }
         }
     }
