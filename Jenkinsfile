@@ -45,7 +45,7 @@ pipeline {
 
         stage('Terraform Destroy') {
                  when {
-                 name: 'Destroy', value: 'true'
+                 option name: 'Destroy', value: 'true'
             	 }
 		steps {
 		sh '''
