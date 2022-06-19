@@ -45,7 +45,7 @@ pipeline {
 
         stage('Terraform Destroy') {
                  when {
-                 allOf{
+                 anyOf{
  			expression{Destroy == true}
             	 }
 		}
