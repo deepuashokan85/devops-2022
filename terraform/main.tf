@@ -19,7 +19,7 @@ resource "aws_security_group" "pradeep_sg" {
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    cidr_blocks      = ["10.10.10.10/32"]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
