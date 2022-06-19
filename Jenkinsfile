@@ -1,30 +1,25 @@
 pipeline {
-    agent { label 'python_exe' }
+    agent any
 
     stages {
-        stage('mvn build') {
+        stage('Terraform Init') {
             steps {
-                echo 'mvn build'
+                cd terraform
+                terraform init
             }
         }
-        stage('deploy') {
+
+        stage('Terraform Plan') {
             steps {
-                echo 'ansible-playbook'
+		cd terraform
+                terraform plan
             }
         }
-        stage('testing') {
+
+        stage('Terraform Apply') {
             steps {
-                echo 'selinium Testing'
-            }
-        }
-        stage('Dev deployment') {
-            steps {
-                echo 'Ansible-playbook'
-            }
-        }
-        stage('Prod deployment') {
-            steps {
-                echo 'ansible-playbook'
+                cd terraform
+                terraform apply
             }
         }
     }
