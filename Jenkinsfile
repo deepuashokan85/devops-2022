@@ -5,6 +5,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 cd terraform
+                pwd
                 terraform init
             }
         }
@@ -12,6 +13,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
 		cd terraform
+ 		pwd
                 terraform plan
             }
         }
@@ -19,6 +21,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 cd terraform
+ 		pwd
                 terraform apply
             }
         }
