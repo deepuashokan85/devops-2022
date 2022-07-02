@@ -6,6 +6,7 @@ pipeline {
 		sh '''
                 cd packer-demo
                 pwd
+   		env 
                 packer build packer_test.json
   		'''
             }
