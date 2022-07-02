@@ -5,10 +5,7 @@ pipeline {
             steps {
 		sh '''
                 cd packer-demo
-                pwd
-   		env 
-		which packer
-                packer build packer_test.json
+                packer build packer_test.json -debug
   		'''
             }
         }
